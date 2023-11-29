@@ -10,10 +10,9 @@ import (
 func CorsMiddleware(next http.Handler) http.Handler {
 	// Создаем объект cors с желаемыми опциями
 	c := cors.New(cors.Options{
-		AllowedOrigins:   []string{"http://localhost"}, // Разрешаем доступ только с локалхоста
-		AllowedMethods:   []string{"POST"},             // Разрешаем только пост запросы
-		AllowedHeaders:   []string{"Content-Type"},     // Разрешаем только указанные хедеры
-		AllowCredentials: true,                         // Разрешаем куки
+		AllowedOrigins: []string{"http://localhost"}, // Разрешаем доступ только с локалхоста
+		AllowedMethods: []string{"POST"},             // Разрешаем только пост запросы
+		AllowedHeaders: []string{"Content-Type"},     // Разрешаем только указанные хедеры
 	})
 
 	// Возвращаем обернутый обработчик
