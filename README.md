@@ -22,11 +22,11 @@ $ curl -X POST http://localhost:80/process_transaction -H 'Content-Type: applica
 
 Transfer Tips
 ```bash
-$ curl -X POST http://localhost:80/transfer_tips -H 'Content-Type: application/json' -d '{"from_wallet_id":1, "to_wallet_id":2, "amount": 30}'
+$ curl -X POST http://localhost:80/transfer_tips -H 'Content-Type: application/json' -d '{"from_wallet_id":1, "to_wallet_id":22, "amount": 0.5}'
 ```
 
 ```json
-[{"id":44,"transaction_type":2,"wallet_id":1,"amount":500000000000000000,"updated_balance":3623000000000000000},{"id":45,"transaction_type":1,"wallet_id":2,"amount":500000000000000000,"updated_balance":5500000000000000000}]
+[{"id":46,"transaction_type":2,"wallet_id":1,"amount":500000000000000000,"updated_balance":3123000000000000000},{"id":47,"transaction_type":1,"wallet_id":22,"amount":500000000000000000,"updated_balance":500000000000000000}]
 ```
 
 ## Usage
