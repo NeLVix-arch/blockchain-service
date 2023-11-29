@@ -29,6 +29,7 @@ func main() {
 	r := mux.NewRouter()
 	r.Use(middlewares.CorsMiddleware)
 	r.Use(middlewares.RecoverMiddleware)
+	r.Use(middlewares.Logger)
 	// Register the handlers
 	r.HandleFunc("/create_wallet", handlers.CreateWalletHandler(DB)).Methods("POST")
 	r.HandleFunc("/process_transaction", handlers.ProcessTransactionHandler(DB)).Methods("POST")
