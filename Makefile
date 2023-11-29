@@ -16,7 +16,7 @@ test:
 	go test -v ./...
 
 docker-build:
-	docker build -t $(SERVICE) .
+	docker build --build-arg POSTGRES_CONFIG=$POSTGRES_CONFIG --build-arg POSTGRES_CONFIG_TESTING=$POSTGRES_CONFIG_TESTING -t $(SERVICE) .
 
 docker-run:
 	docker run -p $(PORT):$(PORT) -p $(POSTGRES_PORT):$(POSTGRES_PORT) --network="host" $(SERVICE)
