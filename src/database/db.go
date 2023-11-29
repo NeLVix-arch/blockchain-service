@@ -25,6 +25,13 @@ func InitDBS() (*sqlx.DB, *gorm.DB) {
 		log.Fatal(err)
 	}
 
+	// make
+	DB.Exec(`CREATE TABLE IF NOT EXISTS wallets (
+		id SERIAL PRIMARY KEY,
+		coin VARCHAR(20) NOT NULL,
+		balance NUMERIC(38, 0) NOT NULL
+	);`)
+
 	// Initialize gorm
 	GORM, err = gorm.Open("postgres", osenv)
 	if err != nil {

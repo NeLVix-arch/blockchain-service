@@ -33,8 +33,8 @@ func createWalletsTable(t *testing.T, db *sqlx.DB) {
 	// SQL-запрос для создания таблицы
 	query := `CREATE TABLE IF NOT EXISTS wallets (
         id SERIAL PRIMARY KEY,
-        coin VARCHAR(10) NOT NULL,
-        balance BIGINT NOT NULL
+        coin VARCHAR(20) NOT NULL,
+        balance NUMERIC(38, 0) NOT NULL
     );`
 
 	// Выполняем запрос
@@ -48,7 +48,7 @@ func createWalletsTable(t *testing.T, db *sqlx.DB) {
 func createWallets(t *testing.T, db *sqlx.DB) {
 	// SQL-запрос для вставки данных
 	query := `INSERT INTO wallets (coin, balance) VALUES
-    ('ETH', 1000000000000000000), ('BTC', 1000000000000000000);`
+    ('eth', 1000000000000000000), ('eth', 1000000000000000000);`
 
 	// Выполняем запрос
 	_, err := db.Exec(query)
