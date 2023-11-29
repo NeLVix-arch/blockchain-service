@@ -3,6 +3,7 @@ package main
 import (
 	"blockchain-service/src/database"
 	"blockchain-service/src/handlers"
+	"blockchain-service/src/middlewares"
 	"blockchain-service/src/models"
 	"context"
 	"log"
@@ -26,7 +27,8 @@ func main() {
 
 	// Create a new router
 	r := mux.NewRouter()
-
+	r.Use(middlewares.CorsMiddleware)
+	r.Use(middlewares.RecoverMiddleware)
 	// Register the handlers
 	r.HandleFunc("/create_wallet", handlers.CreateWalletHandler(DB)).Methods("POST")
 	r.HandleFunc("/process_transaction", handlers.ProcessTransactionHandler(DB)).Methods("POST")
